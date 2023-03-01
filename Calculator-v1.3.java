@@ -146,25 +146,25 @@ public class Calculator implements ActionListener {
             num1 = Double.parseDouble(TextField.getText());
             operator = '+';
             TextField.setText("");
-            historyField.setText(num1 + " +");
+            historyField.setText(num1 + " + ");
         }
         if (e.getSource() == subButton) {
             num1 = Double.parseDouble(TextField.getText());
             operator = '-';
             TextField.setText("");
-            historyField.setText(num1 + " -");
+            historyField.setText(num1 + " - ");
         }
         if (e.getSource() == mulButton) {
             num1 = Double.parseDouble(TextField.getText());
             operator = '*';
             TextField.setText("");
-            historyField.setText(num1 + " *");
+            historyField.setText(num1 + " * ");
         }
         if (e.getSource() == divButton) {
             num1 = Double.parseDouble(TextField.getText());
             operator = '/';
             TextField.setText("");
-            historyField.setText(num1 + " /");
+            historyField.setText(num1 + " / ");
         }
         if (e.getSource() == equButton) { // operation equ(=)
             num2 = Double.parseDouble(TextField.getText());
