@@ -21,8 +21,6 @@ public class Calculator implements ActionListener {
     char operator;
 
     Calculator() {
-
-        //application window
         frame = new JFrame("Calculator"); //title name
         frame.setSize(420, 550);
         frame.setLayout(null);
@@ -67,7 +65,6 @@ public class Calculator implements ActionListener {
         functionButtons[7] = clrButton;
         functionButtons[8] = negButton;
 
-
         for (int i = 0; i < 9; i++) {
             functionButtons[i].addActionListener(this);
             functionButtons[i].setFont(myFont);
@@ -110,7 +107,6 @@ public class Calculator implements ActionListener {
         panel.add(equButton);
         panel.add(divButton);
 
-
         //add buttons and textFields on the frame
         frame.setLocationRelativeTo(null);
         frame.add(panel);
@@ -122,8 +118,6 @@ public class Calculator implements ActionListener {
         frame.setVisible(true);
 
         frame.repaint(); // bag fix with buttons loadings
-
-
     }
 
     public static void main(String[] args) { //main program
