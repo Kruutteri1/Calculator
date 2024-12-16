@@ -7,44 +7,41 @@ import java.awt.event.ActionListener;
 
 public class Calculator implements ActionListener {
     JFrame frame;
-    JTextField TextField; // main text output field
-    JTextField historyField; // second field for see history operations
-    JButton[] numberButtons = new JButton[10]; //0-9
-    JButton[] functionButtons = new JButton[9]; //all operations buttons (+,-,*,/,.,=,c,(-))
+    JTextField TextField;
+    JTextField historyField;
+    JButton[] numberButtons = new JButton[10];
+    JButton[] functionButtons = new JButton[9];
     JButton addButton,subButton,mulButton,divButton; // buttons
     JButton decButton, equButton, delButton, clrButton, negButton;
-    JPanel panel; // main panel for buttons
+    JPanel panel;
 
-    Font myFont = new Font("Times New Roman", Font.BOLD, 30); //global font
+    Font myFont = new Font("Times New Roman", Font.BOLD, 30);
 
     double num1=0,num2=0,result=0;
     char operator;
 
     Calculator() {
-        frame = new JFrame("Calculator"); //title name
+        frame = new JFrame("Calculator");
         frame.setSize(420, 550);
         frame.setLayout(null);
         frame.setVisible(true);
         frame.setResizable(false);
 
-        //output Text window
         TextField = new JTextField();
-        TextField.setBounds(50, 45, 300, 50); //window location
+        TextField.setBounds(50, 45, 300, 50);
         TextField.setFont(myFont);
         TextField.setEditable(false);
         TextField.setHorizontalAlignment(SwingConstants.RIGHT);
 
-        // operations history window
         historyField = new JTextField();
         historyField.setBounds(50, 15, 300, 25);
         historyField.setEditable(false);
-        historyField.setBorder(null); // hide frame border
-        historyField.setHorizontalAlignment(SwingConstants.RIGHT); //writing switch on right
+        historyField.setBorder(null);
+        historyField.setHorizontalAlignment(SwingConstants.RIGHT);
 
-        historyField.setFont(new Font("Times New Roman", Font.PLAIN, 20)); //setfont and style of the text
-        historyField.setForeground(Color.DARK_GRAY); // text color
+        historyField.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+        historyField.setForeground(Color.DARK_GRAY);
 
-        // all operation buttons
         addButton = new JButton("+");
         subButton = new JButton("-");
         mulButton = new JButton("*");
@@ -78,18 +75,14 @@ public class Calculator implements ActionListener {
             numberButtons[i].setFocusable(false);
         }
 
-        //adding a buttons and setPosition
         negButton.setBounds(50, 430, 100, 50);
         delButton.setBounds(150, 430, 100, 50);
         clrButton.setBounds(250, 430, 100, 50);
 
-        // background for buttons
         panel = new JPanel();
         panel.setBounds(50, 100, 300, 300);
         panel.setLayout(new GridLayout(4,4,10,10));
-        //panel.setBackground(Color.GRAY);
 
-        // add all buttons on the panel
         panel.add(numberButtons[1]);
         panel.add(numberButtons[2]);
         panel.add(numberButtons[3]);
@@ -107,7 +100,6 @@ public class Calculator implements ActionListener {
         panel.add(equButton);
         panel.add(divButton);
 
-        //add buttons and textFields on the frame
         frame.setLocationRelativeTo(null);
         frame.add(panel);
         frame.add(negButton);
@@ -117,22 +109,17 @@ public class Calculator implements ActionListener {
         frame.add(historyField);
         frame.setVisible(true);
 
-        frame.repaint(); // bag fix with buttons loadings
-    }
-
-    public static void main(String[] args) { //main program
-        Calculator calc = new Calculator(); //create a new calculator
+        frame.repaint();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        for (int i = 0; i < 10; i++) { // output only numbers
-            if (e.getSource() == numberButtons[i]) { // check on pressing a number
-                TextField.setText(TextField.getText().concat(String.valueOf(i))); //output
+        for (int i = 0; i < 10; i++) {
+            if (e.getSource() == numberButtons[i]) {
+                TextField.setText(TextField.getText().concat(String.valueOf(i)));
             }
         }
 
-        // checking operation buttons clicks
         if (e.getSource() == decButton) {
             TextField.setText(TextField.getText().concat("."));
         }
@@ -174,7 +161,6 @@ public class Calculator implements ActionListener {
             num1 = result;
         }
 
-        // add functions clr, del, neg buttons
         if (e.getSource() == clrButton) {
             TextField.setText("");
             historyField.setText("");
